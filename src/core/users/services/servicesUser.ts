@@ -2,7 +2,7 @@ import { UserRepositoryPort } from '../../../application/users/ports/userReposit
 import { RegisterUserDTO } from '../../../adapters/in/users/dtos/registerUserDto';
 import { UpdateUserDTO } from '../../../adapters/in/users/dtos/updateUserDto';
 import { User } from '../domain/userEntity';
-import bcrypt from 'bcryptjs';
+import * as bcrypt from 'bcryptjs';
 import { v4 as uuidv4 } from 'uuid';
 import { AuditService } from './auditService';
 
