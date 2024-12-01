@@ -1,6 +1,7 @@
 import { User } from '../domain/userEntity';
 import { UserRepositoryImpl as UserRepository } from './userRepository';
 import { UpdateUserDTO } from '../../../adapters/in/users/dtos/updateUserDto';
+import { pool } from '../../../infrastructure/config/database';
 
 export class UserRepositoryImpl implements UserRepository {
     private userRepo: any;
@@ -10,8 +11,9 @@ export class UserRepositoryImpl implements UserRepository {
     }
 
     async findByEmail(correo: string): Promise<User | null> {
-        return await this.userRepo.findByEmail(correo);
-    }
+        const [rows]: [any[], any] = await pool.query('SELECT * FROM usuarios WHERE correo = ?', [correo]);
+        return rows.length > 0 ? rows[0] : null; // rows[0] debe incluir 'tipo'
+    }    
 
     async isEmpty(): Promise<boolean> {
         const users = await this.userRepo.find();
