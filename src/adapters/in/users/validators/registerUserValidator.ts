@@ -13,7 +13,7 @@ export const registerUserValidator = [
         .withMessage('Debe proporcionar un correo electrónico válido'),
 
     body('password')
-        .optional()
+        .notEmpty()
         .isLength({ min: 8 })
         .matches(/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/)
         .withMessage('La contraseña debe tener al menos 8 caracteres, incluyendo una letra mayúscula, una minúscula, un número y un carácter especial'),

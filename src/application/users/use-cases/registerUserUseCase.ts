@@ -20,8 +20,11 @@ export class RegisterUserUseCase {
         const isFirstUser = await this.userRepository.isEmpty();
         const userType = isFirstUser ? 'Administrador' : userDTO.tipo || 'Padre';
         
+        if (!userDTO.password) {
+            throw new Error('La contraseña es obligatoria');
+        }
         const hashedPassword = await this.userService.hashPassword(userDTO.password);
-
+        
         const user = new User(
             uuidv4(),
             userDTO.nombre,
