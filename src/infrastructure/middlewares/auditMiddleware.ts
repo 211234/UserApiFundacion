@@ -58,3 +58,6 @@ export const auditAlimentosMiddleware = (accion: string, descripcionCallback: (r
 
 export const auditActividadesMiddleware = (accion: string, descripcionCallback: (req: Request) => string) =>
     auditMiddleware('actividades', accion, descripcionCallback);
+
+export const auditDocentesMiddleware = (accion: string, descripcionCallback: (req: Request) => string) =>
+    auditMiddleware('docentes', accion, descripcionCallback);
