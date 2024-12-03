@@ -9,7 +9,7 @@ export class RegisterDocenteController {
         private registerDocenteUseCase: RegisterDocenteUseCase,
         private auditService: AuditService,
         private userRepository: UserRepositoryPort // Necesario para buscar el usuario administrador
-    ) {}
+    ) { }
 
     async handle(req: Request, res: Response, next: NextFunction): Promise<void> {
         try {
@@ -26,6 +26,10 @@ export class RegisterDocenteController {
 
             // Ejecutar el caso de uso para registrar un docente
             const docente = await this.registerDocenteUseCase.execute(docenteDTO);
+
+            console.log('Datos recibidos:', docenteDTO);
+            console.log('Usuario administrador encontrado:', adminUser);
+            console.log('Docente creado:', docente);
 
             // Registrar acción en la auditoría
             await this.auditService.createAuditLog({
