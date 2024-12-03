@@ -30,7 +30,8 @@ export class LoginUserController {
             res.status(200).json({ 
                 message: `Login Exitoso como ${user.tipo}`, 
                 token,
-                userType: user.tipo
+                userType: user.tipo,
+                id_usuario: user.id_usuario // Agregar el id_usuario en la respuesta
             });
         } catch (error) {
             next(error);
