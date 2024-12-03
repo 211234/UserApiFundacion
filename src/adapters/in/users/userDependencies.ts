@@ -63,7 +63,7 @@ export const readUserController = new ReadUserController(readUserUseCase);
 export const updateUserController = new UpdateUserController(updateUserUseCase);
 export const loginUserController = new LoginUserController(loginUserUseCase, userAuditUseCase);
 
-export const registerDocenteController = new RegisterDocenteController(registerDocenteUseCase, auditService, userRepository);
+export const registerDocenteController = new RegisterDocenteController(registerDocenteUseCase, auditService);
 export const registerNiñoController = new RegisterHijoController(registerHijoUseCase);
 export const updateNiñoController = new UpdateHijoController(updateHijoUseCase);
 export const updateDocenteController = new UpdateDocenteController(updateDocenteUseCase);

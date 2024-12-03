@@ -22,7 +22,7 @@ export class RegisterDocenteUseCase {
         // Hashea la contraseña
         const hashedPassword = await bcrypt.hash(docenteDTO.password, 10);
 
-        // Registra el usuario en `usuarios`
+        // Registra el usuario en usuarios
         const nuevoUsuarioId = uuidv4();
         const nuevoUsuario: User = {
             id_usuario: nuevoUsuarioId,
@@ -37,7 +37,7 @@ export class RegisterDocenteUseCase {
 
         await this.userRepository.createUser(nuevoUsuario);
 
-        // Registra el docente en `docentes`
+        // Registra el docente en docentes
         const docente = new Docente(uuidv4(), nuevoUsuarioId, docenteDTO.materia, docenteDTO.direccion);
         return await this.docenteRepository.createDocente(docente);
     }
