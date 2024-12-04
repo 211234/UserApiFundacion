@@ -6,5 +6,5 @@ export interface DocenteRepositoryPort {
     findById(id_docente: string): Promise<Docente | null>;
     update(id_docente: string, updatedData: any): Promise<Docente | null>;
     delete(id_docente: string): Promise<void>;
-    getAllDocentes(): Promise<Docente[]>;
+    getAllDocentes(): Promise<any[]>; // En lugar de Docente[]
 }

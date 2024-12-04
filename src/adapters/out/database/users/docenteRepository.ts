@@ -37,10 +37,20 @@ export class DocenteRepository implements DocenteRepositoryPort {
         return this.findById(id_docente);
     }
 
-    async getAllDocentes(): Promise<Docente[]> {
-        const [rows]: [any[], any] = await pool.query('SELECT * FROM docentes');
-        return rows as Docente[];
-    }
+    async getAllDocentes(): Promise<any[]> {
+        const [rows]: [any[], any] = await pool.query(`
+            SELECT 
+                d.id_docente, 
+                d.materia, 
+                d.direccion, 
+                u.nombre, 
+                u.correo, 
+                u.telefono
+            FROM docentes d
+            INNER JOIN usuarios u ON d.id_usuario = u.id_usuario
+        `);
+        return rows;
+    }    
 
     async delete(id_docente: string): Promise<void> {
         const [result]: any = await pool.query('DELETE FROM docentes WHERE id_docente = ?', [id_docente]);
