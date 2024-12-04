@@ -15,7 +15,7 @@ import {
     registerNiñoController,
     updateNiñoController,
     auditController,
-    getHijosByPadreController
+    getHijosByPadreController,
 } from './userDependencies';
 
 import {
