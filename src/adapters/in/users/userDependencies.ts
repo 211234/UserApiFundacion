@@ -29,7 +29,7 @@ import { GetAllDocentesUseCase } from '../../../application/users/use-cases/getA
 import { DeleteDocenteUseCase } from '../../../application/users/use-cases/deleteDocenteUseCase';
 import { GetAllDocentesController } from './controllers/getAllDocentesController';
 import { DeleteDocenteController } from './controllers/deleteDocenteController';
-import { GetHijosByPadreController } from './controllers/GetHijosByPadreController';
+import { GetHijosByPadreController } from './controllers/getHijosByPadreController';
 import { GetHijosByPadreUseCase } from '../../../application/users/use-cases/getHijosByPadreUseCase';
 
 // Crear instancias de repositorios
