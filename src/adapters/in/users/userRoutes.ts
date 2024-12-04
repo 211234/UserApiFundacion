@@ -135,10 +135,11 @@ router.post(
 );
 
 router.get(
-    '/v1/padres/hijos',
+    '/v1/padres/:id_usuario/hijos',
     authMiddleware,
     isPadreMiddleware,
-    (req: Request, res: Response, next: NextFunction) => getHijosByPadreController.handle(req, res, next)
+    (req: Request, res: Response, next: NextFunction) =>
+        getHijosByPadreController.handle(req, res, next)
 );
 
 

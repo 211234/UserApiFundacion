@@ -82,4 +82,4 @@ export const deleteDocenteController = new DeleteDocenteController(deleteDocente
 
 // Controlador para obtener hijos por id de padre
 const getHijosByPadreUseCase = new GetHijosByPadreUseCase(userRepository);
-export const getHijosByPadreController = new GetHijosByPadreController(userService, getHijosByPadreUseCase);
+export const getHijosByPadreController = new GetHijosByPadreController(getHijosByPadreUseCase);
