@@ -29,6 +29,8 @@ import { GetAllDocentesUseCase } from '../../../application/users/use-cases/getA
 import { DeleteDocenteUseCase } from '../../../application/users/use-cases/deleteDocenteUseCase';
 import { GetAllDocentesController } from './controllers/getAllDocentesController';
 import { DeleteDocenteController } from './controllers/deleteDocenteController';
+import { GetHijosByPadreController } from './controllers/GetHijosByPadreController';
+import { GetHijosByPadreUseCase } from '../../../application/users/use-cases/getHijosByPadreUseCase';
 
 // Crear instancias de repositorios
 const userRepository = new UserRepository();
@@ -77,3 +79,7 @@ const deleteDocenteUseCase = new DeleteDocenteUseCase(docenteRepository);
 
 export const getAllDocentesController = new GetAllDocentesController(getAllDocentesUseCase);
 export const deleteDocenteController = new DeleteDocenteController(deleteDocenteUseCase);
+
+// Controlador para obtener hijos por id de padre
+const getHijosByPadreUseCase = new GetHijosByPadreUseCase(userRepository);
+export const getHijosByPadreController = new GetHijosByPadreController(userService, getHijosByPadreUseCase);

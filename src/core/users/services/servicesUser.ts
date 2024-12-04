@@ -90,6 +90,10 @@ export class UserService {
         });
     }
 
+    async getHijosByPadre(idPadre: string): Promise<any[]> {
+        return await this.userRepository.getHijosByPadre(idPadre);
+    }
+
     async loginUser(id_usuario: string) {
         await this.auditService.createAuditLog({
             id_usuario,

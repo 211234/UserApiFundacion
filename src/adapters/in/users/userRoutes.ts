@@ -14,7 +14,8 @@ import {
     deleteDocenteController,
     registerNiñoController,
     updateNiñoController,
-    auditController
+    auditController,
+    getHijosByPadreController
 } from './userDependencies';
 
 import {
@@ -132,6 +133,14 @@ router.post(
     auditUserMiddleware('REGISTER_HIJO', (req: AuthRequest) => `Registro de hijo por usuario con ID ${req.user?.id_usuario}`),
     (req: Request, res: Response, next: NextFunction) => registerNiñoController.handle(req, res, next)
 );
+
+router.get(
+    '/v1/padres/hijos',
+    authMiddleware,
+    isPadreMiddleware,
+    (req: Request, res: Response, next: NextFunction) => getHijosByPadreController.handle(req, res, next)
+);
+
 
 router.put(
     '/v1/hijos/:id_hijo',

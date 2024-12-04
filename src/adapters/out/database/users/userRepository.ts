@@ -141,4 +141,15 @@ export class UserRepository implements UserRepositoryPort {
 
         return padresConHijos;
     }
+
+    async getHijosByPadre(idPadre: string): Promise<any[]> {
+        const [rows]: [any[], any] = await pool.query(
+            `SELECT h.* 
+             FROM hijos h 
+             INNER JOIN usuarios u ON h.id_usuario = u.id_usuario 
+             WHERE u.id_usuario = ?`,
+            [idPadre]
+        );
+        return rows;
+    }
 }
