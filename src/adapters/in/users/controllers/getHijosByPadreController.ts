@@ -4,6 +4,7 @@ import { GetHijosByPadreUseCase } from '../../../../application/users/use-cases/
 export class GetHijosByPadreController {
     constructor(private readonly getHijosByPadreUseCase: GetHijosByPadreUseCase) {}
 
+    //G
     async handle(req: Request, res: Response, next: NextFunction): Promise<void> {
         try {
             const { id_usuario } = req.params;
