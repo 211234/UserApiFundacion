@@ -8,5 +8,6 @@ export interface UserRepositoryPort {
     createUser(user: User): Promise<User>;
     updateUser(id_usuario: string, updateData: UpdateUserDTO): Promise<User>;
     deleteUser(id_usuario: string): Promise<void>;
-    getHijosByPadre(idPadre: string): Promise<any[]>; 
+    getPadresConHijos(): Promise<any[]>;
+    getHijosByPadre(id_usuario: string): Promise<any[]>;
 }

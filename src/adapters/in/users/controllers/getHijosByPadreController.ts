@@ -5,7 +5,7 @@ import { GetHijosByPadreUseCase } from '../../../../application/users/use-cases/
 export class GetHijosByPadreController {
     constructor(
         private readonly userService: UserService,
-        private readonly getHijosByPadre: GetHijosByPadreUseCase
+        private readonly getHijosByPadreUseCase: GetHijosByPadreUseCase
     ) { }
 
     async handle(req: Request, res: Response, next: NextFunction): Promise<void> {
